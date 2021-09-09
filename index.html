@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat 2.0.0</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="onCreateRoom" >Crear Sala</button> {{newRoomId}}
+        <br>{{rooms}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src= "/socket.io/socket.io.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return {
+                    newRoomId:'',
+                    rooms: []
+                }
+            },
+        mounted(){
+            this.socket =io('http://localhost:3000')
+            this.socket.on('connect', ()=>{
+                   console.log('Conectado');
+            })
+            this.socket.on('newRoomCreated', (data)=>{
+                this.newRoomId = data.roomId
+                this.rooms = data.rooms
+                
+            })
+        },
+        methods:{
+            onCreateRoom(){
+                this.socket.emit('newRoom')
+
+            }
+        }
+            
+    })
+    </script>
+</body>
+</html>

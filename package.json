@@ -1,0 +1,28 @@
+{
+  "name": "chat2",
+  "version": "2.0.0",
+  "description": "Segunda versión del proyecto chat",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilmerPereirajps/chat2.git"
+  },
+  "author": "Wilmer Pereira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WilmerPereirajps/chat2/issues"
+  },
+  "homepage": "https://github.com/WilmerPereirajps/chat2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "shortid": "^2.2.16",
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
